@@ -141,7 +141,8 @@ p{
 	outline: none;
 	border:none;
 	width: 100%;
-	padding:1rem 1.5rem;
+	padding:.8rem 1.5rem;
+	margin-bottom: 1.5rem;
 	border-radius: var(--little-radius);
 }
 
@@ -207,7 +208,7 @@ p{
 	outline: none;
 	border: none;
 	background: transparent;
-	padding: 1rem 2.5rem;
+	padding: .8rem 1.8rem;
 	font-size: 1.9rem;
 	text-transform: capitalize;
 	letter-spacing: .5px;
@@ -242,6 +243,8 @@ p{
 }
 .list__link{
 	position: relative;
+	text-transform: capitalize;
+	color: var(--white-color);
 }
 .list__link:hover{
 	color: var(--primary-color);
@@ -300,6 +303,35 @@ p{
 	color: var(--dark-color);
 }
 
+/* footer */
+.footer{
+	background: var(--dark-color);
+	color: var(--white-color);
+}
+.footer .container{
+	padding: 4rem 1rem;
+}
+.footer p{
+	margin-bottom: 1.5rem;
+}
+.footer .logo{
+	color: var(--white-color);
+}
+
+.footer__info{
+	gap: 3rem;
+}
+.footer__copy{
+	background: var(--icon-color);
+	text-align: center;
+	margin-top: 3rem;
+	padding:1.5rem  1rem;
+	font-size: 1.4rem;
+}
+
+
+
+
 @media (min-width:600px){
 	.header .container{
 		flex-direction: row;
@@ -313,9 +345,23 @@ p{
 	.header .menu{
 		margin-left: 1.5rem;
 	}
+	.footer__info{
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		align-items: flex-start;
+	}
 }
 
 @media (min-width:768px){
+	h1{
+		font-size: 3.77rem;
+	}
+	h2{
+		font-size: 3.5rem;
+	}
+	h3{
+		font-size: 2.3rem;
+	}
 	.icon-group{
 		display: flex;
 		gap: 1rem;
@@ -334,6 +380,10 @@ p{
 	.header .logo{
 		flex-basis: 60%;
 	}
+	.footer__info{
+		grid-template-columns: .9fr 1fr 1.1fr .9fr;
+	}
+	
 }
 
 
