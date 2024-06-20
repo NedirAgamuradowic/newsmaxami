@@ -149,3 +149,26 @@ p{
 .icon-group{
 	gap: 1.5rem;
 }
+
+/* box */
+.box{
+	padding: 1.5rem;
+	background: var(--white-color);
+	color: var(--dark-color);
+}
+.box--primary{
+	background: var(--primary-color);
+	color: var(--white-color);
+}
+.box--sport{
+	background: var(--sport-color);
+	color: var(--white-color);
+}
+.box--technology{
+	background: var(--technology-color);
+	color: var(--white-color);
+}
+.box--entertainment{
+	background: var(--entertainment-color);
+	color: var(--white-color);
+}
