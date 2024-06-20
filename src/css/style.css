@@ -193,3 +193,37 @@ p{
 .badge--technology{
 	background: var(--technology-color);
 }
+
+/* button */
+.btn{
+	display: inline-block;
+	outline: none;
+	border: none;
+	background: transparent;
+	padding: 1rem 2.5rem;
+	font-size: 1.9rem;
+	text-transform: capitalize;
+	letter-spacing: .5px;
+	cursor: pointer;
+	color: var(--white-color);
+}
+.btn:hover{
+	opacity: .8;
+}
+.btn--block{
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+.btn--primary{
+	background: var(--primary-color);
+}
+.btn--sport{
+	background: var(--sport-color);
+}
+.btn--black{
+	background: var(--black-color);
+}
+.btn--dark{
+	background: var(--dark-color);
+}
