@@ -78,7 +78,7 @@ select {
   font: inherit;
 }
 
-/* heading fonts */
+/* typogrpahy */
 h1, h2, h3, h4{
 	font-family: var(--heading-font);
 	line-height: 1.2;
