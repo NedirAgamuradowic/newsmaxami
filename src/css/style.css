@@ -18,7 +18,8 @@
 	--max-width:1100px;
 
 	/* border radius */
-	--border-radius:5px;
+	--little-radius:5px;
+	--big-radius:50px;
 }
 /* reset */
 *,
@@ -134,7 +135,7 @@ p{
 	border:none;
 	width: 100%;
 	padding:1rem 1.5rem;
-	border-radius: var(--border-radius);
+	border-radius: var(--little-radius);
 }
 
 /* icon */
@@ -171,4 +172,24 @@ p{
 .box--entertainment{
 	background: var(--entertainment-color);
 	color: var(--white-color);
+}
+
+/* badge */
+.badge{
+	display: inline-block;
+	padding: .8rem 2.6rem;
+	border-radius: var(--big-radius);
+	font-family: var(--heading-font);
+	font-size: 1.9rem;
+	text-transform: uppercase;
+	color: var(--white-color);
+}
+.badge--sport{
+	background: var(--sport-color);
+}
+.badge--entertainment{
+	background: var(--entertainment-color);
+}
+.badge--technology{
+	background: var(--technology-color);
 }
