@@ -112,7 +112,7 @@ p{
 	margin: 0 auto;
 }
 .padding{
-	padding: 2rem;
+	padding: 3rem 1rem;
 }
 .flex{
 	display: flex;
@@ -329,6 +329,10 @@ p{
 	font-size: 1.4rem;
 }
 
+/* main */
+.main{
+	background: var(--light-color);
+}
 
 
 
