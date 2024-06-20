@@ -227,3 +227,23 @@ p{
 .btn--dark{
 	background: var(--dark-color);
 }
+
+/* list */
+.list__item{
+	padding: 1rem 0;
+	border-bottom: 1px dotted var(--light-color);
+}
+.list__link{
+	position: relative;
+}
+.list__link:hover{
+	color: var(--primary-color);
+}
+.list--arrow .list__link::before{
+	content: '\003e';
+	position: relative;
+	top: .2rem;
+	margin-right: .5rem;
+	font-weight: 900;
+	font-size: 1.6em
+}
