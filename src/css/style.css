@@ -265,3 +265,35 @@ p{
 .logo .text--primary{
 	margin-left: -0.5rem;
 }
+
+/* content */
+.content{
+	flex-direction: column;
+	gap: 1rem;
+}
+
+
+@media (min-width:768px){
+	.content{
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.content__right{
+		flex-basis: 35%;
+		align-self: flex-start;
+	}
+	.content__left{
+		flex-basis: 60%;
+	}
+	
+}
+
+
+@media (min-width:900px){
+	.content__left{
+		flex-basis: 65%;
+	}
+	.content__right{
+		flex-basis: 30%;
+	}
+}
