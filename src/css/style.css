@@ -8,6 +8,7 @@
 	--technology-color:#009CFF;
 	--light-color:#F3F3F3;
 	--dark-color:#333333;
+	--icon-color:#444;
 
 	/* fonts */
 	--heading-font: "Staatliches", sans-serif;
@@ -129,4 +130,17 @@ p{
 	width: 100%;
 	padding:1rem 1.5rem;
 	border-radius: var(--border-radius);
+}
+
+/* icon */
+.icon{
+	font-size: 3.5rem;
+	color: var(--icon-color);
+	cursor: pointer;
+}
+.icon:hover{
+	color: var(--primary-color);
+}
+.icon-group{
+	gap: 1.5rem;
 }
