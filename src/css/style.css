@@ -8,6 +8,10 @@
 	--technology-color:#009CFF;
 	--light-color:#F3F3F3;
 	--dark-color:#333333;
+
+	/* fonts */
+	--heading-font: "Staatliches", sans-serif;
+	--text-font: "Lato", sans-serif;
 }
 /* reset */
 *,
@@ -23,8 +27,10 @@ html{
 body {
   min-height: 100vh;
   scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
+  font-family: var(--text-font);
+  font-size: 1.6rem;
   line-height: 1.5;
+  text-rendering: optimizeSpeed;
 }
 
 body,
@@ -70,4 +76,24 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+/* heading fonts */
+h1, h2, h3, h4{
+	font-family: var(--heading-font);
+	line-height: 1.2;
+	text-transform: uppercase;
+	margin-bottom: 1.4rem;
+}
+h1{
+	font-size: 4.77rem;
+}
+h2{
+	font-size: 3.98rem;
+}
+h3{
+	font-size: 3.31rem;
+}
+p{
+	margin: 1rem 0;
 }
