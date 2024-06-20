@@ -216,7 +216,7 @@ p{
 	color: var(--white-color);
 }
 .btn:hover{
-	opacity: .8;
+	opacity: .9;
 }
 .btn--block{
 	display: block;
@@ -358,13 +358,13 @@ p{
 
 @media (min-width:768px){
 	h1{
-		font-size: 3.77rem;
+		font-size: 4rem;
 	}
 	h2{
 		font-size: 3.5rem;
 	}
 	h3{
-		font-size: 2.3rem;
+		font-size: 2.7rem;
 	}
 	.icon-group{
 		display: flex;
@@ -379,7 +379,7 @@ p{
 		align-self: flex-start;
 	}
 	.content__left{
-		flex-basis: 60%;
+		flex-basis: 63%;
 	}
 	.header .logo{
 		flex-basis: 60%;
@@ -393,7 +393,7 @@ p{
 
 @media (min-width:900px){
 	.content__left{
-		flex-basis: 65%;
+		flex-basis: 68%;
 	}
 	.content__right{
 		flex-basis: 30%;
