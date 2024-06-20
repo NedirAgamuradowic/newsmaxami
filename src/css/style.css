@@ -125,6 +125,9 @@ p{
 .hide{
 	display: none;
 }
+.text--primary{
+	color: var(--primary-color);
+}
 
 /* input */
 ::placeholder{
@@ -246,4 +249,19 @@ p{
 	margin-right: .5rem;
 	font-weight: 900;
 	font-size: 1.6em
+}
+
+/* logo */
+.logo{
+	gap: .3rem;
+	align-items: center;
+	text-transform: uppercase;
+	font-family: var(--heading-font);
+	font-size: 3.5rem;
+}
+.logo__img{
+	width: 45px;
+}
+.logo .text--primary{
+	margin-left: -0.5rem;
 }
