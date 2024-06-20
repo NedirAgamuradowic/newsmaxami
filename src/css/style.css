@@ -120,6 +120,11 @@ p{
 	display: grid;
 }
 
+/* utilities */
+.hide{
+	display: none;
+}
+
 /* input */
 ::placeholder{
 	color: var(--dark-color);
