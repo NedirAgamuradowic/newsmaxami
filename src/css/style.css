@@ -12,6 +12,9 @@
 	/* fonts */
 	--heading-font: "Staatliches", sans-serif;
 	--text-font: "Lato", sans-serif;
+
+	/* max width */
+	--max-width:1100px;
 }
 /* reset */
 *,
@@ -96,4 +99,20 @@ h3{
 }
 p{
 	margin: 1rem 0;
+}
+
+/* containers */
+.container{
+	max-width: var(--max-width);
+	margin: 0 auto;
+	border: 1px solid red;
+}
+.padding{
+	padding: 2rem;
+}
+.flex{
+	display: flex;
+}
+.grid{
+	display: grid;
 }
