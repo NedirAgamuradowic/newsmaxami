@@ -359,6 +359,40 @@ p{
 	flex-direction: column;
 }
 
+/* home */
+.showcase{
+	background: url('../img/hero.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	padding: 8rem 1rem;
+	position: relative;
+	color: var(--white-color);
+}
+.showcase::before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background: rgba(0,0,0,0.6);
+}
+.showcase__content{
+	position: relative;
+	z-index: 2;
+	max-width: 490px;
+}
+.showcase__content h1{
+	margin-top: 2rem;
+}
+.showcase__content .btn{
+	margin-top: 2rem;
+}
+
+
+
 @media (min-width:600px){
 	.header .container{
 		flex-direction: row;
