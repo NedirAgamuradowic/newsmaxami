@@ -230,28 +230,7 @@ p{
 .card-container{
 	gap: 2rem;
 }
-.card:nth-child(1){
-	grid-area: one;
-}
-.card:nth-child(2){
-	grid-area: second;
-}
-.card:nth-child(3){
-	grid-area: three;
-}
-.card:nth-child(4){
-	grid-area: four;
-	flex-direction: column-reverse;
-}
-.card:nth-child(5){
-	grid-area: five;
-}
-.card:nth-child(6){
-	grid-area: sixth;
-}
-.card:nth-child(7){
-	grid-area: seven;
-}
+
 /* button */
 .btn{
 	display: inline-block;
@@ -454,6 +433,28 @@ p{
 		"four five"
 		"second sixth"
 		"seven seven";
+	}
+	.card:nth-child(1){
+		grid-area: one;
+	}
+	.card:nth-child(2){
+		grid-area: second;
+	}
+	.card:nth-child(3){
+		grid-area: three;
+	}
+	.card:nth-child(4){
+		grid-area: four;
+		flex-direction: column-reverse;
+	}
+	.card:nth-child(5){
+		grid-area: five;
+	}
+	.card:nth-child(6){
+		grid-area: sixth;
+	}
+	.card:nth-child(7){
+		grid-area: seven;
 	}
 	.card:nth-child(7){
 		flex-direction: row-reverse;
