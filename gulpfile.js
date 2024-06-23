@@ -2,27 +2,26 @@
 const {src, dest, watch, series, parallel }  = require('gulp');
 const del = require('del');
 const browserSync = require('browser-sync').create();
-
-
-// gulp plugins
 const plumber = require('gulp-plumber');
-const htmlmin = require('gulp-htmlmin');
+
+
+// html plugins
 const webpHTML = require('gulp-webp-html');
-const sass = require('gulp-sass')(require('sass'));
-const csso = require('gulp-csso');
+const htmlmin = require('gulp-htmlmin');
+
+// css plugins
+const concat = require('gulp-concat');
+const cssimport = require('gulp-cssimport');
 const autoprefixer = require('gulp-autoprefixer');
-const rename = require('gulp-rename');
 const shorthand = require('gulp-shorthand');
 const groupCssMediaQueries = require('gulp-group-css-media-queries');
-const webpCss = require('gulp-webp-css');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
-const imagemin = require('gulp-imagemin');
+const rename = require('gulp-rename');
+const csso = require('gulp-csso');
+
+// image plugins
 const newer = require('gulp-newer');
 const webp = require('gulp-webp');
-const fonter = require('gulp-fonter');
-const ttf2woff2 = require('gulp-ttf2woff2');
-
+const imagemin = require('gulp-imagemin');
 
 // path
 const pathSrc = './src';
@@ -36,25 +35,15 @@ const path = {
 		watch:pathSrc + '/html/**/*.html',
 		dest:pathDest
 	},
-	scss:{
-		src:pathSrc + '/scss/*.scss',
-		watch:pathSrc + '/scss/**/*.scss',
+	css:{
+		src:pathSrc + '/css/*.css',
+		watch:pathSrc + '/css/**/*.css',
 		dest:pathDest +'/css'
-	},
-	js:{
-		src:pathSrc + '/js/*.js',
-		watch:pathSrc + '/js/**/*.js',
-		dest:pathDest +'/js'
 	},
 	img:{
 		src:pathSrc + '/img/*.*',
 		watch:pathSrc + '/img/**/*.*',
 		dest:pathDest +'/img'
-	},
-	font:{
-		src:pathSrc + '/font/*.*',
-		watch:pathSrc + '/font/**/*.*',
-		dest:pathDest +'/font'
 	}
 };
 
@@ -69,22 +58,16 @@ const config = {
 
 	isDev:isDev,
 
+	sourcemaps:{sourcemaps:isDev},
+
 	html:{collapseWhitespace:isProd},
 
-	sourcemaps:{sourcemaps:isDev},
+	concat:"style.css",
 
 	rename:{suffix:".min"},
 
-	babel:{
-		presets: ['@babel/preset-env']
-	},
-
 	imagemin:{
 		verbose:true
-	},
-
-	fonter:{
-		formats:['ttf', 'eot', 'woff']
 	},
 
 	browserSync:{
@@ -110,29 +93,19 @@ function html() {
 	.pipe(browserSync.stream())
 }
 
-// scss
-function scss() {
-	return src(path.scss.src, config.sourcemaps)
+// css task
+function css() {
+	return src(path.css.src, config.sourcemaps)
 	.pipe(plumber())
-	.pipe(sass())
-	.pipe(webpCss())
-	.pipe(autoprefixer())
-	.pipe(shorthand())
+	.pipe(concat(config.concat))
+	.pipe(cssimport())
+	.pipe(autoprefixer()
+	.pipe(shorthand()))
 	.pipe(groupCssMediaQueries())
-	.pipe(dest(path.scss.dest, config.sourcemaps))
+	.pipe(dest(path.css.dest, config.sourcemaps))
 	.pipe(rename(config.rename))
 	.pipe(csso())
-	.pipe(dest(path.scss.dest))
-	.pipe(browserSync.stream())
-};
-
-// javascript
-function js() {
-	return src(path.js.src, config.sourcemaps)
-	.pipe(plumber())
-	.pipe(babel(config.babel))
-	.pipe(uglify())
-	.pipe(dest(path.js.dest))
+	.pipe(dest(path.css.dest))
 	.pipe(browserSync.stream())
 }
 
@@ -150,25 +123,11 @@ function image() {
 	.pipe(browserSync.stream())
 }
 
-
-// font
-function font() {
-	return src(path.font.src)
-	.pipe(plumber())
-	.pipe(newer(path.font.dest))
-	.pipe(fonter(config.fonter))
-	.pipe(dest(path.font.dest))
-	.pipe(ttf2woff2())
-	.pipe(dest(path.font.dest));
-}
-
 // watch task
 function watcher() {
 	watch(path.html.watch, html)
-	watch(path.scss.watch, scss)
-	watch(path.js.watch, js)
-	watch(path.img.watch, image)
-	watch(path.font.watch, font);
+	watch(path.css.watch, css)
+	watch(path.img.watch, image);
 }
 
 // browsersync server
@@ -177,7 +136,7 @@ function server() {
 }
 
 // build project
-const build = series(clear, parallel(html, scss, js, image, font));
+const build = series(clear, parallel(html, css, image));
 
 // development
 const development = series(build,  parallel(watcher, server));
@@ -186,12 +145,10 @@ const development = series(build,  parallel(watcher, server));
 // export tasks
 exports.clear = clear;
 exports.html = html;
-exports.scss = scss;
-exports.js = js;
+exports.css = css;
 exports.image = image;
-exports.font = font;
 exports.watch = watcher;
 
 
-// 
+//  default
 exports.default = config.isProd ? build : development;
