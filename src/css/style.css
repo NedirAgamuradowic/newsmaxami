@@ -181,6 +181,10 @@ p{
 	background: var(--entertainment-color);
 	color: var(--white-color);
 }
+.box--dark{
+	background-color: var(--dark-color);
+	color: var(--white-color);
+}
 
 /* badge */
 .badge{
@@ -202,6 +206,26 @@ p{
 	background: var(--technology-color);
 }
 
+/* card */
+.card {
+	flex-direction: column;
+	gap: 3rem;
+	box-shadow:  0 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.card img{
+	height: 100%;
+}
+.card .badge{
+	margin-bottom: 2rem;
+	font-size: 1.6rem;
+}
+.card-container{
+	gap: 2rem;
+	padding: 0.5rem;
+}
+.card-container .box{
+	align-self: flex-start;
+}
 /* button */
 .btn{
 	display: inline-block;
@@ -394,6 +418,20 @@ p{
 
 
 @media (min-width:600px){
+	.card-container{
+		grid-template-columns: 1fr 1fr;
+	}
+	.card-container .card:nth-child(4){
+		flex-direction: column-reverse;
+	}
+	.card-container .card:nth-child(7){
+		flex-direction: row-reverse;
+		grid-column: 1/ 3;
+	}
+	.card h3{
+		font-size:2rem;
+	}
+	
 	.header .container{
 		flex-direction: row;
 		justify-content: space-between;
@@ -443,6 +481,16 @@ p{
 	.icon-group{
 		display: flex;
 		gap: 1rem;
+	}
+	.card-container{
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.card-container .card:nth-child(1){
+		grid-column: 1/3;
+		flex-direction: row;
+	}
+	.card-container .card:nth-child(7){
+		grid-column: 2/4;
 	}
 	.content{
 		flex-direction: row;
